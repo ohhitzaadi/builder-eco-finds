@@ -66,12 +66,26 @@ function SellForm() {
           {errors.location && <p className="mt-1 text-xs text-destructive">{errors.location.message as any}</p>}
         </div>
         <div>
-          <input type="file" accept="image/*" onChange={(e)=> { const f = e.target.files?.[0]; if (f) onFile(f); }} />
+          {/* Hidden native file input */}
+          <input id={fileInputId} type="file" accept="image/*" className="sr-only" onChange={(e)=> { const f = e.target.files?.[0]; if (f) onFile(f); }} />
+
+          <div className="flex items-center gap-3">
+            <Button asChild variant="outline"><label htmlFor={fileInputId} className="cursor-pointer">Choose file</label></Button>
+
+            {imageName ? (
+              <div className="text-sm text-muted-foreground">{imageName}</div>
+            ) : (
+              <p className="text-sm text-muted-foreground">Optional: upload an image. A placeholder will be used if omitted.</p>
+            )}
+
+            {imageName && (
+              <Button variant="ghost" size="sm" onClick={() => { setValue("image", undefined); setImageName(undefined); }}>Remove</Button>
+            )}
+          </div>
+
           {imageData ? (
             <div className="mt-2 h-48 w-48 overflow-hidden rounded-md border"><img src={typeof imageData === "string" ? imageData : ""} alt="preview" className="h-full w-full object-cover"/></div>
-          ) : (
-            <p className="mt-1 text-sm text-muted-foreground">Optional: upload an image. A placeholder will be used if omitted.</p>
-          )}
+          ) : null}
         </div>
         <Button type="submit" disabled={isSubmitting}>Publish</Button>
       </form>
