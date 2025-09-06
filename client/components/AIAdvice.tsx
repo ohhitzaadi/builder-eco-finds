@@ -166,6 +166,26 @@ export default function AIAdvice() {
               <div className="text-sm text-muted-foreground">Advice</div>
               <div className="mt-2 whitespace-pre-wrap">{result || "Enter some details and click Suggest Price to get tailored advice."}</div>
             </div>
+
+            <div className="mt-6 border-t pt-4">
+              <div className="text-sm text-muted-foreground">Ask AI Coach</div>
+              <div className="mt-2 rounded-md border bg-card p-3">
+                <div className="max-h-40 overflow-auto space-y-2" id="ai-chat-list">
+                  {messages.map((m) => (
+                    <div key={m.id} className={`flex ${m.from === "user" ? "justify-end" : "justify-start"}`}>
+                      <div className={`${m.from === "user" ? "bg-primary text-primary-foreground" : "bg-muted/50 text-foreground"} px-3 py-2 rounded-md max-w-[80%] text-sm`}>
+                        {m.text}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-3 flex gap-2">
+                  <input value={chatInput} onChange={(e) => setChatInput(e.target.value)} onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); sendChat(); } }} placeholder="Ask about pricing, listing tips, or sustainability" className="flex-1 rounded-md border px-2 py-1 text-sm" />
+                  <button onClick={sendChat} className="rounded-md bg-primary px-3 py-1 text-sm text-primary-foreground">Send</button>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
 
