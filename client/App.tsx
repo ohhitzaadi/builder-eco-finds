@@ -15,6 +15,7 @@ import Dashboard from "@/pages/Dashboard";
 import ProductDetail from "@/pages/ProductDetail";
 import Cart from "@/pages/Cart";
 import Purchases from "@/pages/Purchases";
+import TreesSavedPage from "@/pages/TreesSavedPage";
 import Login from "@/pages/auth/Login";
 import Register from "@/pages/auth/Register";
 import { AuthProvider, useAuth } from "@/state/auth";
