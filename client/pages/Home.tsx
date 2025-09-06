@@ -207,6 +207,9 @@ export default function Home() {
           />
         </div>
       </section>
+
+      {/* Trees saved section at bottom */}
+      <TreesSaved />
     </div>
   );
 }
