@@ -102,4 +102,9 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  /* Fixed brand color that does not change between light/dark */
+  .text-brand {
+    color: hsl(var(--brand));
+  }
 }
