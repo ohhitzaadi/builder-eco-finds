@@ -6,7 +6,7 @@ function format(n: number) {
   return new Intl.NumberFormat().format(n);
 }
 
-const PRODUCTS_PER_TREE = 100; // one product = 1%
+const PRODUCTS_PER_TREE: number = 100; // one product = 1%
 
 export default function TreesSaved() {
   const [productsCount, setProductsCount] = useState<number>(0);
