@@ -125,10 +125,10 @@ export default function AIAdvice() {
         <div className="mt-6 grid gap-6 md:grid-cols-3">
           <div className="rounded-lg border bg-card p-6">
             <label className="text-sm">Title</label>
-            <input value={title} onChange={(e) => setTitle(e.target.value)} className="mt-2 w-full rounded-md border px-2 py-1" placeholder="e.g. Vintage Nike Air Max" />
+            <input value={title} onChange={(e) => setTitle(e.target.value)} className="mt-2 w-full rounded-md border px-2 py-1 text-black" placeholder="e.g. Vintage Nike Air Max" />
 
             <label className="text-sm mt-3">Category</label>
-            <select value={category} onChange={(e) => setCategory(e.target.value as any)} className="mt-2 w-full rounded-md border px-2 py-1">
+            <select value={category} onChange={(e) => setCategory(e.target.value as any)} className="mt-2 w-full rounded-md border px-2 py-1 text-black">
               <option value="Other">Other</option>
               {categoryOptions.map((c) => (
                 <option key={c} value={c}>{c}</option>
@@ -136,14 +136,14 @@ export default function AIAdvice() {
             </select>
 
             <label className="text-sm mt-3">Condition</label>
-            <select value={condition} onChange={(e) => setCondition(e.target.value as any)} className="mt-2 w-full rounded-md border px-2 py-1">
+            <select value={condition} onChange={(e) => setCondition(e.target.value as any)} className="mt-2 w-full rounded-md border px-2 py-1 text-black">
               <option value="new">New</option>
               <option value="good">Good</option>
               <option value="fair">Fair</option>
             </select>
 
             <label className="text-sm mt-3">Your anticipated price (₹)</label>
-            <input value={desiredPrice} onChange={(e) => setDesiredPrice(e.target.value)} type="number" min={0} step="1" className="mt-2 w-full rounded-md border px-2 py-1" placeholder="e.g. 1200" />
+            <input value={desiredPrice} onChange={(e) => setDesiredPrice(e.target.value)} type="number" min={0} step="1" className="mt-2 w-full rounded-md border px-2 py-1 text-black" placeholder="e.g. 1200" />
 
             <div className="mt-4 flex gap-2">
               <button onClick={computeSuggestion} className="rounded-md bg-primary px-3 py-2 text-sm text-primary-foreground">Suggest Price</button>
