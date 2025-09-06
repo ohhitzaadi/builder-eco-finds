@@ -30,7 +30,7 @@ function HeroSlideshow({ interval = 6000 }: { interval?: number }) {
           src={src}
           alt={`hero-${i}`}
           className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-linear transform-gpu ${i === index ? "opacity-100 scale-105" : "opacity-0 scale-100"}`}
-          style={{ transformOrigin: "center", filter: "brightness(0.5) saturate(0.85) contrast(0.9)" }}
+          style={{ transformOrigin: "center", filter: "var(--hero-image-filter)" }}
         />
       ))}
       {/* Dark overlay to ensure foreground text always reads clearly */}
