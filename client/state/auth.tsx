@@ -72,6 +72,31 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setCurrentUserId(user.id);
   }, [users]);
 
+  const socialLogin = useCallback(async (provider: "google" | "facebook") => {
+    // Mock social login for prototype: create or find a user based on provider
+    const mockId = crypto.randomUUID().slice(0, 8);
+    const email = `${provider}.${mockId}@social.ecofinds.test`;
+    let user = users.find((u) => u.email.toLowerCase() === email.toLowerCase());
+    if (!user) {
+      const id = crypto.randomUUID();
+      const username = `${provider.charAt(0).toUpperCase() + provider.slice(1)}User${mockId}`;
+      const profile: UserProfile = {
+        id,
+        email,
+        passwordHash: await sha256(mockId),
+        username,
+        bio: "",
+        ecoScore: newEcoScore(),
+        trustBadges: [`Verified via ${provider}`],
+        createdAt: Date.now(),
+      };
+      setUsers((p) => [...p, profile]);
+      setCurrentUserId(id);
+    } else {
+      setCurrentUserId(user.id);
+    }
+  }, [users]);
+
   const logout = useCallback(() => setCurrentUserId(null), []);
 
   const updateProfile = useCallback((updates: Partial<Omit<UserProfile, "id" | "email" | "passwordHash" | "createdAt">>) => {
