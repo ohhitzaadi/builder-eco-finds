@@ -47,8 +47,15 @@ export default function Login() {
           </CardHeader>
           <CardContent>
             <div className="flex flex-col gap-3">
-              <Button className="w-full" variant="outline" onClick={() => handleSocial("google")}>Sign in with Google</Button>
-              <Button className="w-full" variant="outline" onClick={() => handleSocial("facebook")}>Sign in with Facebook</Button>
+              <Button className="w-full flex items-center justify-center gap-2" variant="outline" onClick={() => handleSocial("google")}>
+                <img src="https://cdn.builder.io/api/v1/image/assets%2F06962a51b996448bbf203913336a012c%2F3fbe9c5eab2c4202aa97eb9ea78384bd?format=webp&width=80" alt="Google" className="h-5 w-5" />
+                <span>Sign in with Google</span>
+              </Button>
+
+              <Button className="w-full flex items-center justify-center gap-2" variant="outline" onClick={() => handleSocial("facebook")}>
+                <img src="https://cdn.builder.io/api/v1/image/assets%2F06962a51b996448bbf203913336a012c%2Fb873904f92a94d6fb86d7815fa78d6b3?format=webp&width=80" alt="Facebook" className="h-5 w-5" />
+                <span>Sign in with Facebook</span>
+              </Button>
             </div>
 
             <div className="my-4 border-t" />
