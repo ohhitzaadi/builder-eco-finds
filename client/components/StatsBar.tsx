@@ -80,18 +80,8 @@ export default function StatsBar() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-2 w-48">
-          <div className="flex items-center gap-2">
-            <span className="text-2xl">🌳</span>
-            <div>
-              <div className="font-semibold">{format(Math.floor(kgDiverted / KG_PER_TREE))}</div>
-              <div className="text-xs">trees saved</div>
-            </div>
-          </div>
-          <div className="mt-1">
-            <Progress value={Math.min(100, Math.round(((kgDiverted % KG_PER_TREE) / KG_PER_TREE) * 100))} />
-            <div className="mt-1 text-xs text-muted-foreground">{Math.min(100, Math.round(((kgDiverted % KG_PER_TREE) / KG_PER_TREE) * 100))}% to next tree</div>
-          </div>
+        <div className="flex flex-col gap-1 items-center">
+          <Link to="/trees" className="text-sm text-primary underline">View trees saved</Link>
         </div>
       </div>
     </div>
