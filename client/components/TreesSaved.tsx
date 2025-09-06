@@ -60,7 +60,16 @@ export default function TreesSaved() {
               <div className="text-sm text-muted-foreground">trees saved</div>
             </div>
             <div className="flex-1">
-              <Progress value={progressTowardNext} />
+              <div className="relative">
+                <Progress value={progressTowardNext} />
+                <div
+                  aria-hidden
+                  className="absolute top-1/2 transform -translate-y-1/2"
+                  style={{ left: `${progressTowardNext}%`, transform: `translate(-50%, -50%)` }}
+                >
+                  <span className="text-sm">🌳</span>
+                </div>
+              </div>
               <div className="mt-2 text-sm text-muted-foreground">{progressTowardNext}% to next tree</div>
             </div>
           </div>
