@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Sprout, ShieldCheck, Leaf, Recycle, Search } from "lucide-react";
 import { useProducts } from "@/state/products";
 import ProductCard from "@/components/ProductCard";
+import TreesSaved from "@/components/TreesSaved";
 import { useAuth } from "@/state/auth";
 
 const HERO_IMAGES = [
