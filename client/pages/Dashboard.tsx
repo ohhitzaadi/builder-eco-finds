@@ -1,5 +1,6 @@
 import { useAuth } from "@/state/auth";
 import { useProducts } from "@/state/products";
+import { formatPrice } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -68,7 +69,7 @@ function DashboardInner() {
             {myListings.map((p)=> (
               <div key={p.id} className="rounded-lg border p-3">
                 <Link to={`/product/${p.id}`} className="font-semibold line-clamp-1 hover:underline">{p.title}</Link>
-                <div className="text-sm text-muted-foreground">${(p.price/100).toFixed(2)}</div>
+                <div className="text-sm text-muted-foreground">{formatPrice(p.price)}</div>
                 <div className="mt-2 flex gap-2">
                   <Button asChild variant="secondary" size="sm"><Link to={`/product/${p.id}`}>View</Link></Button>
                   <Button variant="destructive" size="sm" onClick={()=> remove(p.id)}>Delete</Button>

@@ -1,5 +1,6 @@
 import { useCart } from "@/state/cart";
 import { useProducts } from "@/state/products";
+import { formatPrice } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
@@ -30,7 +31,7 @@ export default function Cart() {
                 </div>
                 <div className="flex-1">
                   <div className="font-semibold">{product!.title}</div>
-                  <div className="text-sm text-muted-foreground">${(product!.price/100).toFixed(2)}</div>
+                  <div className="text-sm text-muted-foreground">{formatPrice(product!.price)}</div>
                 </div>
                 <Button variant="secondary" onClick={()=> removeFromCart(cartId)}>Remove</Button>
               </div>
@@ -39,7 +40,7 @@ export default function Cart() {
           <div className="rounded-lg border p-4">
             <div className="flex items-center justify-between font-semibold">
               <div>Total</div>
-              <div>${(total/100).toFixed(2)}</div>
+              <div>{formatPrice(total)}</div>
             </div>
             <Button className="mt-4 w-full" onClick={()=> checkout((id)=> products.find((p)=> p.id===id)?.price ?? 0)}>Checkout</Button>
             <p className="mt-2 text-xs text-muted-foreground">Checkout is a placeholder for now.</p>

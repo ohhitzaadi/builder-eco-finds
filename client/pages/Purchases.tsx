@@ -1,5 +1,6 @@
 import { useCart } from "@/state/cart";
 import { useProducts } from "@/state/products";
+import { formatPrice } from "@/lib/utils";
 
 export default function Purchases() {
   const { purchases } = useCart();
@@ -27,7 +28,7 @@ export default function Purchases() {
                 <div className="font-semibold">{product!.title}</div>
                 <div className="text-sm text-muted-foreground">Purchased on {new Date(purchase.purchasedAt).toLocaleString()}</div>
               </div>
-              <div className="font-semibold">${(purchase.priceAtPurchase/100).toFixed(2)}</div>
+              <div className="font-semibold">{formatPrice(purchase.priceAtPurchase)}</div>
             </div>
           ))}
         </div>

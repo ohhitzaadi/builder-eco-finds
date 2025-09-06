@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { formatPrice } from "@/lib/utils";
 import type { Product } from "@/state/types";
 
 export default function ProductCard({ product }: { product: Product }) {
-  const price = (product.price / 100).toFixed(2);
+  const price = formatPrice(product.price);
   return (
     <Card className="overflow-hidden hover:shadow-md transition-shadow">
       <Link to={`/product/${product.id}`}>
@@ -26,7 +27,7 @@ export default function ProductCard({ product }: { product: Product }) {
         <p className="text-sm text-muted-foreground line-clamp-2">{product.description}</p>
       </CardContent>
       <CardFooter className="flex items-center justify-between">
-        <div className="font-semibold">${price}</div>
+        <div className="font-semibold">{price}</div>
         <Link className="text-sm text-primary hover:underline" to={`/product/${product.id}`}>View</Link>
       </CardFooter>
     </Card>

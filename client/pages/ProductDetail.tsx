@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useCart } from "@/state/cart";
 import { MapPin } from "lucide-react";
+import { formatPrice } from "@/lib/utils";
 
 export default function ProductDetail() {
   const { id } = useParams();
@@ -25,7 +26,7 @@ export default function ProductDetail() {
       <div>
         <div className="flex items-center gap-2"><Badge variant="secondary">{product.category}</Badge></div>
         <h1 className="mt-3 text-3xl font-extrabold">{product.title}</h1>
-        <div className="mt-2 text-2xl font-semibold">${(product.price/100).toFixed(2)}</div>
+        <div className="mt-2 text-2xl font-semibold">{formatPrice(product.price)}</div>
         {product.location && (
           <div className="mt-2 flex items-center gap-2 text-sm text-muted-foreground">
             <MapPin className="h-4 w-4" />
