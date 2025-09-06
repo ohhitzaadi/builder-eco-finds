@@ -26,7 +26,11 @@ function SellForm() {
   const { currentUser } = useAuth();
   const { register, handleSubmit, formState: { errors, isSubmitting }, setValue, watch } = useForm<FormValues>({ resolver: zodResolver(schema), defaultValues: { category: categories[0] } });
 
+  const [imageName, setImageName] = useState<string | undefined>(undefined);
+  const fileInputId = useMemo(() => "image-" + Math.random().toString(36).slice(2, 9), []);
+
   const onFile = (file: File) => {
+    setImageName(file.name);
     const reader = new FileReader();
     reader.onload = () => { setValue("image", reader.result as string); };
     reader.readAsDataURL(file);
