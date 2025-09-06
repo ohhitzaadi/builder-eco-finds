@@ -9,6 +9,29 @@ export default function Browse() {
   const [q, setQ] = useState("");
   const [cat, setCat] = useState<string>("All");
 
+  const groupedCategories = [
+    {
+      title: "Fashion & Lifestyle",
+      subs: ["Fashion", "Beauty", "Accessories"],
+    },
+    {
+      title: "Electronics & Gadgets",
+      subs: ["Electronics", "Smart Devices", "Accessories"],
+    },
+    {
+      title: "Home & Living",
+      subs: ["Home", "Furniture", "Decor", "Kitchen"],
+    },
+    {
+      title: "Books, Media & Toys",
+      subs: ["Books", "Media", "Educational", "Toys"],
+    },
+    {
+      title: "Sports & Outdoor",
+      subs: ["Sports", "Sports Gear", "Outdoor", "Outdoor Equipment", "Fitness"],
+    },
+  ];
+
   const filtered = useMemo(() => {
     const term = q.trim().toLowerCase();
     return products.filter((p) => {
@@ -32,6 +55,21 @@ export default function Browse() {
             </SelectContent>
           </Select>
         </div>
+      </div>
+
+      <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {groupedCategories.map((g) => (
+          <div key={g.title} className="rounded-lg border p-4">
+            <div className="font-semibold">{g.title}</div>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {g.subs.map((s) => (
+                <button key={s} onClick={() => setCat(s)} className={"rounded-md border px-3 py-1 text-sm transition-transform duration-150 hover:scale-105 " + (cat === s ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground")}>
+                  {s}
+                </button>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
 
       {filtered.length === 0 ? (
