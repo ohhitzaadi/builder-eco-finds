@@ -51,8 +51,8 @@ export default function Home() {
         <div className="relative z-10 container py-16 md:py-24 grid gap-10 md:grid-cols-2 items-center">
           <div>
             <Badge className="mb-4" variant="secondary">Sustainable Second-Hand Marketplace</Badge>
-            <h1 style={{ fontSize: '60px', fontWeight: 800, letterSpacing: '-1.5px', lineHeight: '60px' }} className="tracking-tight"><span style={{ color: '#22c35d', fontWeight: 800, fontStyle: 'italic' }}>EcoFinds</span> – Empowering Sustainable Consumption</h1>
-            <p style={{ color: 'rgb(148,163,184)', fontSize: '18px', lineHeight: '28px', marginTop: '16px' }}>Buy and sell pre-loved goods, extend product lifecycles, and join a community that rewards conscious choices.</p>
+            <h1 style={{ fontSize: '36px', fontWeight: 700, letterSpacing: '-0.5px', lineHeight: '42px' }} className="tracking-tight"><span style={{ color: '#22c35d', fontWeight: 700, fontStyle: 'italic' }}>EcoFinds</span> – Empowering Sustainable Consumption</h1>
+            <p style={{ color: 'rgb(148,163,184)', fontSize: '14px', lineHeight: '20px', marginTop: '12px' }}>Buy and sell pre-loved goods, extend product lifecycles, and join a community that rewards conscious choices.</p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Button asChild size="lg"><Link to="/browse">Browse Finds</Link></Button>
               <Button asChild size="lg" variant="secondary"><Link to="/sell">Start Selling</Link></Button>
@@ -76,15 +76,15 @@ export default function Home() {
                 {currentUser ? (
                   <div className="grid grid-cols-3 gap-4 text-center">
                     <div className="rounded-lg border p-4">
-                      <div className="text-3xl font-extrabold">{currentUser.ecoScore}</div>
+                      <div className="text-2xl font-extrabold">{currentUser.ecoScore}</div>
                       <div className="text-xs text-muted-foreground">Eco-score</div>
                     </div>
                     <div className="rounded-lg border p-4">
-                      <div className="text-3xl font-extrabold">A+</div>
+                      <div className="text-2xl font-extrabold">A+</div>
                       <div className="text-xs text-muted-foreground">Trust grade</div>
                     </div>
                     <div className="rounded-lg border p-4">
-                      <div className="text-3xl font-extrabold">0.0kg</div>
+                      <div className="text-2xl font-extrabold">0.0kg</div>
                       <div className="text-xs text-muted-foreground">CO₂ saved (beta)</div>
                     </div>
                   </div>
@@ -102,7 +102,7 @@ export default function Home() {
         <div className="container">
           <div className="flex items-center gap-3">
             <Search className="h-5 w-5"/>
-            <h2 className="text-xl font-semibold">Featured Finds</h2>
+            <h2 className="text-lg font-semibold">Featured Finds</h2>
           </div>
           {featured.length === 0 ? (
             <p className="mt-4 text-muted-foreground">No listings yet. Be the first to <Link className="text-primary underline" to="/sell">create a listing</Link>.</p>
