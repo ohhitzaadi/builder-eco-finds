@@ -79,7 +79,12 @@ export default function Register() {
               </div>
               <div>
                 <Input placeholder="Password" type="password" {...register("password" as const)} />
+                <p className="mt-2 text-xs text-muted-foreground">A good password is long (at least 12-14 characters), a mix of uppercase and lowercase letters, numbers, and symbols, and doesn't contain dictionary words, personal information, or easily guessable patterns.</p>
                 {errors.password && <p className="mt-1 text-xs text-destructive">{errors.password.message}</p>}
+              </div>
+              <div>
+                <Input placeholder="Confirm password" type="password" {...register("passwordConfirm" as const)} />
+                {errors.passwordConfirm && <p className="mt-1 text-xs text-destructive">{errors.passwordConfirm.message}</p>}
               </div>
               <Button className="w-full" disabled={isSubmitting}>Sign up</Button>
             </form>
