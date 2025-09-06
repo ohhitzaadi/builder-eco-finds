@@ -9,7 +9,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <footer className="border-t bg-muted/20 py-10">
         <div className="container grid gap-6 md:grid-cols-3">
           <div>
-            <div className="font-extrabold text-lg">EcoFinds</div>
+            <div className="font-extrabold text-lg"><span className="text-primary">EcoFinds</span></div>
             <p className="mt-2 text-sm text-muted-foreground">Buy and sell pre-loved goods. Reduce waste. Join the movement.</p>
           </div>
           <div>
