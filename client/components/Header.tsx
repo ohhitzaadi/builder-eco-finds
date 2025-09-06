@@ -1,11 +1,13 @@
 import { Link, NavLink } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/state/auth";
-import { ShoppingCart, Sprout, User } from "lucide-react";
+import { ShoppingCart, Sprout, User, Sun, Moon } from "lucide-react";
 import StatsBar from "@/components/StatsBar";
+import { useTheme } from "@/state/theme";
 
 export default function Header() {
   const { currentUser, logout } = useAuth();
+  const { resolved, toggle } = useTheme();
 
   return (
     <header className="sticky top-0 z-40 w-full border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -21,6 +23,9 @@ export default function Header() {
           <NavLink to="/dashboard" className={({isActive})=>isActive?"text-foreground font-semibold":"text-muted-foreground hover:text-foreground"}>Dashboard</NavLink>
         </nav>
         <div className="flex items-center gap-3">
+          <Button variant="ghost" size="icon" onClick={toggle} aria-label="Toggle theme">
+            {resolved === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+          </Button>
           <Link to="/cart" className="text-muted-foreground hover:text-foreground"><ShoppingCart className="h-5 w-5"/></Link>
           {currentUser ? (
             <div className="flex items-center gap-3">
