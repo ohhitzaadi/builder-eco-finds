@@ -34,6 +34,19 @@ export default function Register() {
             <CardDescription>Join EcoFinds and start buying & selling sustainably.</CardDescription>
           </CardHeader>
           <CardContent>
+            <div className="flex flex-col gap-3 mb-3">
+              <Button className="w-full flex items-center justify-center gap-2" variant="outline" onClick={() => signUpSocial('google')}>
+                <img src="https://cdn.builder.io/api/v1/image/assets%2F06962a51b996448bbf203913336a012c%2F3fbe9c5eab2c4202aa97eb9ea78384bd?format=webp&width=80" alt="Google" className="h-5 w-5" />
+                <span>Sign up with Google</span>
+              </Button>
+              <Button className="w-full flex items-center justify-center gap-2" variant="outline" onClick={() => signUpSocial('facebook')}>
+                <img src="https://cdn.builder.io/api/v1/image/assets%2F06962a51b996448bbf203913336a012c%2Fb873904f92a94d6fb86d7815fa78d6b3?format=webp&width=80" alt="Facebook" className="h-5 w-5" />
+                <span>Sign up with Facebook</span>
+              </Button>
+            </div>
+
+            <div className="my-4 border-t" />
+
             <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
               <div>
                 <Input placeholder="Username" {...register("username" as const)} />
