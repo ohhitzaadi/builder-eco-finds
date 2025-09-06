@@ -61,6 +61,10 @@ function SellForm() {
           <Input type="number" step="0.01" min="0" placeholder="Price" {...register("price" as const)} />
         </div>
         <div>
+          <Input placeholder="Location or address (e.g., City, State)" {...register("location" as const)} />
+          {errors.location && <p className="mt-1 text-xs text-destructive">{errors.location.message as any}</p>}
+        </div>
+        <div>
           <input type="file" accept="image/*" onChange={(e)=> { const f = e.target.files?.[0]; if (f) onFile(f); }} />
           {imageData ? (
             <div className="mt-2 h-48 w-48 overflow-hidden rounded-md border"><img src={typeof imageData === "string" ? imageData : ""} alt="preview" className="h-full w-full object-cover"/></div>
