@@ -29,11 +29,12 @@ function HeroSlideshow({ interval = 6000 }: { interval?: number }) {
           key={src}
           src={src}
           alt={`hero-${i}`}
-          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-linear ${i === index ? "opacity-100 scale-105" : "opacity-0 scale-100"}`}
-          style={{ transformOrigin: "center", filter: "brightness(0.65) saturate(0.9)" }}
+          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-linear transform-gpu ${i === index ? "opacity-100 scale-105" : "opacity-0 scale-100"}`}
+          style={{ transformOrigin: "center", filter: "brightness(0.5) saturate(0.85) contrast(0.9)" }}
         />
       ))}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background/60" />
+      {/* Dark overlay to ensure foreground text always reads clearly */}
+      <div className="absolute inset-0 bg-black/40 dark:bg-black/55" />
     </div>
   );
 }
