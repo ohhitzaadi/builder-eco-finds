@@ -104,7 +104,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setUsers((prev) => prev.map((u) => (u.id === currentUser.id ? { ...u, ...updates } : u)));
   }, [currentUser]);
 
-  const value = useMemo<AuthContextValue>(() => ({ currentUser, users, register, login, logout, updateProfile }), [currentUser, users, register, login, logout, updateProfile]);
+  const value = useMemo<AuthContextValue>(() => ({ currentUser, users, register, login, socialLogin, logout, updateProfile }), [currentUser, users, register, login, socialLogin, logout, updateProfile]);
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
