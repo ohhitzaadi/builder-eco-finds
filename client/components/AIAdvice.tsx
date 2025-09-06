@@ -173,14 +173,14 @@ export default function AIAdvice() {
                 <div className="max-h-40 overflow-auto space-y-2" id="ai-chat-list">
                   {messages.map((m) => (
                     <div key={m.id} className={`flex ${m.from === "user" ? "justify-end" : "justify-start"}`}>
-                      <div className={`${m.from === "user" ? "bg-primary text-primary-foreground" : "bg-muted/50 text-foreground"} px-3 py-2 rounded-md max-w-[80%] text-sm`}>
+                      <div className={`${m.from === "user" ? "bg-primary" : "bg-muted/50"} px-3 py-2 rounded-md max-w-[80%] text-sm text-foreground`}>
                         {m.text}
                       </div>
                     </div>
                   ))}
                 </div>
                 <div className="mt-3 flex gap-2">
-                  <input value={chatInput} onChange={(e) => setChatInput(e.target.value)} onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); sendChat(); } }} placeholder="Ask about pricing, listing tips, or sustainability" className="flex-1 rounded-md border px-2 py-1 text-sm" />
+                  <input value={chatInput} onChange={(e) => setChatInput(e.target.value)} onKeyDown={(e) => { if (e.key === "Enter") { e.preventDefault(); sendChat(); } }} placeholder="Ask about pricing, listing tips, or sustainability" className="flex-1 rounded-md border px-2 py-1 text-sm text-foreground placeholder:text-muted-foreground bg-transparent focus:outline-none" />
                   <button onClick={sendChat} className="rounded-md bg-primary px-3 py-1 text-sm text-primary-foreground">Send</button>
                 </div>
               </div>
