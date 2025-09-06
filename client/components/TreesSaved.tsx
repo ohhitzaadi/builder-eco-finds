@@ -1,32 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { Progress } from "@/components/ui/progress";
+import { loadJSON } from "@/state/storage";
 
 function format(n: number) {
   return new Intl.NumberFormat().format(n);
 }
 
-const AVERAGE_KG_PER_ITEM = 0.26; // kg per rehomed item
-const KG_PER_TREE: number = 20; // kg equivalent per tree
+const PRODUCTS_PER_TREE = 100; // one product = 1%
 
 export default function TreesSaved() {
-  const [kgDiverted, setKgDiverted] = useState<number>(0);
+  const [productsCount, setProductsCount] = useState<number>(0);
 
   useEffect(() => {
     function compute() {
       try {
-        let purchasesTotal = 0;
-        for (let i = 0; i < localStorage.length; i++) {
-          const key = localStorage.key(i)!;
-          if (key.startsWith("ecofinds:purchases:")) {
-            try {
-              const raw = JSON.parse(localStorage.getItem(key) || "[]");
-              if (Array.isArray(raw)) purchasesTotal += raw.length;
-            } catch {
-              // ignore malformed
-            }
-          }
-        }
-        setKgDiverted(Math.round(purchasesTotal * AVERAGE_KG_PER_ITEM));
+        const products = loadJSON<any[]>("products", []);
+        setProductsCount(Array.isArray(products) ? products.length : 0);
       } catch (e) {
         console.error(e);
       }
@@ -43,15 +32,15 @@ export default function TreesSaved() {
     };
   }, []);
 
-  const treesSaved = Math.floor(kgDiverted / KG_PER_TREE);
-  const progressTowardNext = KG_PER_TREE === 0 ? 0 : Math.min(100, Math.round(((kgDiverted % KG_PER_TREE) / KG_PER_TREE) * 100));
+  const treesSaved = Math.floor(productsCount / PRODUCTS_PER_TREE);
+  const progressTowardNext = PRODUCTS_PER_TREE === 0 ? 0 : Math.min(100, Math.round(((productsCount % PRODUCTS_PER_TREE) / PRODUCTS_PER_TREE) * 100));
 
   return (
     <section className="border-t py-12">
       <div className="container grid gap-6 md:grid-cols-2 items-center">
         <div>
           <h2 className="text-2xl font-semibold">Trees Saved</h2>
-          <p className="mt-2 text-muted-foreground">Recycling and rehoming reduce waste — here's how many trees the community has helped save so far.</p>
+          <p className="mt-2 text-muted-foreground">Every product uploaded moves the community closer to saving a tree — one product = 1%.</p>
         </div>
         <div className="rounded-lg border p-6">
           <div className="flex items-center justify-between gap-6">
