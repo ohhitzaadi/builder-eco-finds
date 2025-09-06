@@ -14,7 +14,7 @@ export default function Header() {
       <div className="container flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center gap-2 font-extrabold text-xl tracking-tight">
           <span className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-primary text-primary-foreground"><Sprout className="h-5 w-5"/></span>
-          <span>EcoFinds</span>
+          <span className="text-primary">EcoFinds</span>
         </Link>
         <nav className="hidden md:flex items-center gap-6 text-sm">
           <NavLink to="/browse" className={({isActive})=>isActive?"text-foreground font-semibold transition-transform duration-150 hover:scale-105":"text-muted-foreground hover:text-foreground transition-transform duration-150 hover:scale-105"}>Browse</NavLink>
