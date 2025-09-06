@@ -18,7 +18,7 @@ export default function Home() {
         <div className="container py-16 md:py-24 grid gap-10 md:grid-cols-2 items-center">
           <div>
             <Badge className="mb-4" variant="secondary">Sustainable Second-Hand Marketplace</Badge>
-            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight">EcoFinds – Empowering Sustainable Consumption</h1>
+            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight"><span className="text-primary">EcoFinds</span> – Empowering Sustainable Consumption</h1>
             <p className="mt-4 text-lg text-muted-foreground">Buy and sell pre-loved goods, extend product lifecycles, and join a community that rewards conscious choices.</p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Button asChild size="lg"><Link to="/browse">Browse Finds</Link></Button>
