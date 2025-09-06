@@ -17,16 +17,16 @@ export default function Header() {
           <span>EcoFinds</span>
         </Link>
         <nav className="hidden md:flex items-center gap-6 text-sm">
-          <NavLink to="/browse" className={({isActive})=>isActive?"text-foreground font-semibold":"text-muted-foreground hover:text-foreground"}>Browse</NavLink>
-          <NavLink to="/sell" className={({isActive})=>isActive?"text-foreground font-semibold":"text-muted-foreground hover:text-foreground"}>Sell</NavLink>
-          <NavLink to="/purchases" className={({isActive})=>isActive?"text-foreground font-semibold":"text-muted-foreground hover:text-foreground"}>Purchases</NavLink>
-          <NavLink to="/dashboard" className={({isActive})=>isActive?"text-foreground font-semibold":"text-muted-foreground hover:text-foreground"}>Dashboard</NavLink>
+          <NavLink to="/browse" className={({isActive})=>isActive?"text-foreground font-semibold transition-transform duration-150 hover:scale-105":"text-muted-foreground hover:text-foreground transition-transform duration-150 hover:scale-105"}>Browse</NavLink>
+          <NavLink to="/sell" className={({isActive})=>isActive?"text-foreground font-semibold transition-transform duration-150 hover:scale-105":"text-muted-foreground hover:text-foreground transition-transform duration-150 hover:scale-105"}>Sell</NavLink>
+          <NavLink to="/purchases" className={({isActive})=>isActive?"text-foreground font-semibold transition-transform duration-150 hover:scale-105":"text-muted-foreground hover:text-foreground transition-transform duration-150 hover:scale-105"}>Purchases</NavLink>
+          <NavLink to="/dashboard" className={({isActive})=>isActive?"text-foreground font-semibold transition-transform duration-150 hover:scale-105":"text-muted-foreground hover:text-foreground transition-transform duration-150 hover:scale-105"}>Dashboard</NavLink>
         </nav>
         <div className="flex items-center gap-3">
           <Button variant="ghost" size="icon" onClick={toggle} aria-label="Toggle theme">
             {resolved === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </Button>
-          <Link to="/cart" className="text-muted-foreground hover:text-foreground"><ShoppingCart className="h-5 w-5"/></Link>
+          <Link to="/cart" className="text-muted-foreground hover:text-foreground transition-transform duration-150 hover:scale-105"><ShoppingCart className="h-5 w-5"/></Link>
           {currentUser ? (
             <div className="flex items-center gap-3">
               <Link to="/dashboard" className="hidden md:flex items-center gap-2 rounded-md border px-3 py-1.5 text-sm hover:bg-accent"><User className="h-4 w-4"/> {currentUser.username}</Link>
