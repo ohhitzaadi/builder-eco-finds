@@ -57,7 +57,12 @@ export default function StatsBar() {
     <div className="border-t bg-background/50">
       <div className="container py-3 flex items-center justify-center gap-6 text-sm text-muted-foreground">
         <div className="flex items-center gap-2 group transition-transform duration-200 ease-out hover:scale-110 hover:-translate-y-1">
-          <img src="https://cdn.builder.io/o/assets%2F06962a51b996448bbf203913336a012c%2F5e4857b116754c3889a5afd168163fe2?alt=media&token=6ec53cd1-f75c-4f10-99b9-0b10bd0d1df0&apiKey=06962a51b996448bbf203913336a012c" alt="Earth" className="rounded-full object-cover transition-transform duration-200 ease-out transform group-hover:scale-110 group-hover:-translate-y-1" style={{ height: 34, width: 34 }} />
+          <img
+            src="https://cdn.builder.io/o/assets%2F06962a51b996448bbf203913336a012c%2F5e4857b116754c3889a5afd168163fe2?alt=media&token=6ec53cd1-f75c-4f10-99b9-0b10bd0d1df0&apiKey=06962a51b996448bbf203913336a012c"
+            alt="Earth"
+            className="rounded-full object-cover transition-transform duration-200 ease-out transform group-hover:scale-110 group-hover:-translate-y-1"
+            style={{ height: 34, width: 34 }}
+          />
           <div>
             <div className="font-semibold">{format(itemsRehomed)}</div>
             <div className="text-xs">items rehomed</div>
@@ -79,7 +84,6 @@ export default function StatsBar() {
             <div className="text-xs">conscious buyers & sellers</div>
           </div>
         </div>
-
       </div>
     </div>
   );

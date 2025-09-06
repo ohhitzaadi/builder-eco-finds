@@ -27,7 +27,9 @@ const queryClient = new QueryClient();
 
 function WithCartProvider({ children }: { children: React.ReactNode }) {
   const { currentUser } = useAuth();
-  return <CartProvider userId={currentUser?.id ?? null}>{children}</CartProvider>;
+  return (
+    <CartProvider userId={currentUser?.id ?? null}>{children}</CartProvider>
+  );
 }
 
 const App = () => (
