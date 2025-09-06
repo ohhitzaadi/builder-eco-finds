@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { loadJSON } from "@/state/storage";
 
 function format(n: number) {
@@ -55,7 +56,7 @@ export default function StatsBar() {
     <div className="border-t bg-background/50">
       <div className="container py-2 flex items-center justify-center gap-6 text-sm text-muted-foreground">
         <div className="flex items-center gap-2">
-          <span className="text-2xl">🌍</span>
+          <img src="https://cdn.builder.io/o/assets%2F06962a51b996448bbf203913336a012c%2F5e4857b116754c3889a5afd168163fe2?alt=media&token=6ec53cd1-f75c-4f10-99b9-0b10bd0d1df0&apiKey=06962a51b996448bbf203913336a012c" alt="Earth" className="h-6 w-6 rounded-full object-cover" />
           <div>
             <div className="font-semibold">{format(itemsRehomed)}</div>
             <div className="text-xs">items rehomed</div>
