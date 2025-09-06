@@ -33,7 +33,7 @@ function SellForm() {
 
   const onSubmit = async (values: FormValues) => {
     if (!currentUser) return;
-    create({ title: values.title, description: values.description, category: values.category as any, price: Math.round(values.price * 100), imageDataUrl: typeof values.image === "string" ? values.image : undefined }, currentUser.id);
+    create({ title: values.title, description: values.description, category: values.category as any, price: Math.round(values.price * 100), imageDataUrl: typeof values.image === "string" ? values.image : undefined, location: values.location }, currentUser.id);
     window.location.href = "/browse";
   };
 
