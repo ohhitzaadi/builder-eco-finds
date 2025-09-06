@@ -2,6 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useAuth } from "@/state/auth";
 import { ShoppingCart, Sprout, User } from "lucide-react";
+import StatsBar from "@/components/StatsBar";
 
 export default function Header() {
   const { currentUser, logout } = useAuth();
@@ -34,6 +35,7 @@ export default function Header() {
           )}
         </div>
       </div>
+      <StatsBar />
     </header>
   );
 }
