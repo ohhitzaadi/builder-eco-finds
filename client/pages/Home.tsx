@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
@@ -6,6 +7,36 @@ import { Sprout, ShieldCheck, Leaf, Recycle, Search } from "lucide-react";
 import { useProducts } from "@/state/products";
 import ProductCard from "@/components/ProductCard";
 import { useAuth } from "@/state/auth";
+
+const HERO_IMAGES = [
+  "https://cdn.builder.io/api/v1/image/assets%2F06962a51b996448bbf203913336a012c%2Fe63e9355c70e47f2ab3cf68f30ab5b04?format=webp&width=1600",
+  "https://cdn.builder.io/api/v1/image/assets%2F06962a51b996448bbf203913336a012c%2Fa74ee7b9de8f4b22ac46861ff79e672d?format=webp&width=1600",
+  "https://cdn.builder.io/api/v1/image/assets%2F06962a51b996448bbf203913336a012c%2Ff9760c37b84049c6b9e7c0c0237b9b1f?format=webp&width=1600",
+];
+
+function HeroSlideshow({ interval = 6000 }: { interval?: number }) {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => setIndex((i) => (i + 1) % HERO_IMAGES.length), interval);
+    return () => clearInterval(id);
+  }, [interval]);
+
+  return (
+    <div className="absolute inset-0 -z-10 overflow-hidden">
+      {HERO_IMAGES.map((src, i) => (
+        <img
+          key={src}
+          src={src}
+          alt={`hero-${i}`}
+          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-linear ${i === index ? "opacity-100 scale-105" : "opacity-0 scale-100"}`}
+          style={{ transformOrigin: "center", filter: "brightness(0.65) saturate(0.9)" }}
+        />
+      ))}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background/60" />
+    </div>
+  );
+}
 
 export default function Home() {
   const { products } = useProducts();
@@ -15,7 +46,8 @@ export default function Home() {
   return (
     <div>
       <section className="relative overflow-hidden">
-        <div className="container py-16 md:py-24 grid gap-10 md:grid-cols-2 items-center">
+        <HeroSlideshow />
+        <div className="relative z-10 container py-16 md:py-24 grid gap-10 md:grid-cols-2 items-center">
           <div>
             <Badge className="mb-4" variant="secondary">Sustainable Second-Hand Marketplace</Badge>
             <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight"><span className="text-primary">EcoFinds</span> – Empowering Sustainable Consumption</h1>
