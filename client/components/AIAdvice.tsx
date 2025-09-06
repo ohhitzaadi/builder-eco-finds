@@ -39,6 +39,16 @@ export default function AIAdvice() {
   const [result, setResult] = useState<string | null>(null);
   const [suggested, setSuggested] = useState<number | null>(null);
 
+  // chat box state
+  type Msg = { id: string; from: "user" | "bot"; text: string; time: number };
+  const [messages, setMessages] = useState<Msg[]>(() => {
+    try {
+      const raw = localStorage.getItem("ecofinds:aiadvice:messages");
+      return raw ? JSON.parse(raw) : [{ id: "welcome", from: "bot", text: "Hi — ask me for selling tips or price suggestions. Try: 'how to list', 'how to price', or type 'tip'", time: Date.now() }];
+    } catch { return [{ id: "welcome", from: "bot", text: "Hi — ask me for selling tips or price suggestions. Try: 'how to list', 'how to price', or type 'tip'", time: Date.now() }]; }
+  });
+  const [chatInput, setChatInput] = useState("");
+
   const categoryOptions = useMemo(() => categories, [categories]);
 
   function computeSuggestion() {
