@@ -51,10 +51,16 @@
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 142 71% 29%;
     --brand: 142 71% 29%;
+
+    /* hero image filter for light theme */
+    --hero-image-filter: brightness(0.65) saturate(0.95) contrast(1);
   }
 
   .dark {
     --brand: 142 71% 29%;
+
+    /* hero image filter for dark theme */
+    --hero-image-filter: brightness(0.45) saturate(0.85) contrast(0.95);
     --background: 222.2 84% 6%;
     --foreground: 210 40% 98%;
 
