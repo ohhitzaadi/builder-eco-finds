@@ -51,6 +51,29 @@ export default function AIAdvice() {
 
   const categoryOptions = useMemo(() => categories, [categories]);
 
+  function replyToChat(text: string) {
+    const t = text.trim().toLowerCase();
+    if (t === "") return "I'm here to help — ask about pricing, listing tips, or sustainability.";
+    if (t === "tip") return "Try clear photos, honest descriptions, and competitive pricing.";
+    if (t.includes("price")) return "Use the Suggest Price box — choose category and condition, then compare the suggestion to your desired price.";
+    if (t.includes("list") || t.includes("how to")) return "Write a clear title, include measurements/photos, be honest about condition, and offer pickup/delivery options.";
+    if (t.includes("recycl") || t.includes("sustain")) return "Promote reuse: highlight durability, repair options, and how selling prevents waste.";
+    return "Good question — include clear photos, model/year, condition, and any accessories or defects to help buyers decide.";
+  }
+
+  function sendChat() {
+    const text = chatInput.trim();
+    if (!text) return;
+    const userMsg = { id: Math.random().toString(36).slice(2,9), from: "user" as const, text, time: Date.now() };
+    setMessages((m) => { const next = [...m, userMsg]; try { localStorage.setItem("ecofinds:aiadvice:messages", JSON.stringify(next)); } catch {} return next; });
+    setChatInput("");
+    setTimeout(() => {
+      const botReply = replyToChat(text);
+      const botMsg = { id: Math.random().toString(36).slice(2,9), from: "bot" as const, text: botReply, time: Date.now() };
+      setMessages((m) => { const next = [...m, botMsg]; try { localStorage.setItem("ecofinds:aiadvice:messages", JSON.stringify(next)); } catch {} return next; });
+    }, 300);
+  }
+
   function computeSuggestion() {
     // compute average price for category
     const cat = category as string;
