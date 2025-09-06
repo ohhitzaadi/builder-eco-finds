@@ -163,6 +163,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Trees saved section */}
+      <TreesSaved />
+
       <section className="border-t bg-muted/30 py-12">
         <div className="container">
           <div className="flex items-center gap-3">
