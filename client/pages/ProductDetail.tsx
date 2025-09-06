@@ -3,6 +3,7 @@ import { useProducts } from "@/state/products";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useCart } from "@/state/cart";
+import { MapPin } from "lucide-react";
 
 export default function ProductDetail() {
   const { id } = useParams();
