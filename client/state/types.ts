@@ -40,6 +40,7 @@ export interface Product {
   category: Category;
   price: number; // cents
   imageDataUrl?: string; // base64 data url
+  location?: string;
   createdAt: number;
   updatedAt: number;
 }
