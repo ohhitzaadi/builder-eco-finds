@@ -14,7 +14,7 @@ const HERO_IMAGES = [
   "https://cdn.builder.io/api/v1/image/assets%2F06962a51b996448bbf203913336a012c%2Ff9760c37b84049c6b9e7c0c0237b9b1f?format=webp&width=1600",
 ];
 
-function HeroSlideshow({ interval = 6000 }: { interval?: number }) {
+function HeroSlideshow({ interval = 8000 }: { interval?: number }) {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -29,8 +29,8 @@ function HeroSlideshow({ interval = 6000 }: { interval?: number }) {
           key={src}
           src={src}
           alt={`hero-${i}`}
-          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ease-linear transform-gpu ${i === index ? "opacity-100 scale-105" : "opacity-0 scale-100"}`}
-          style={{ transformOrigin: "center", filter: "var(--hero-image-filter)", transition: "filter 400ms ease" }}
+          className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1500 ease-in-out transform-gpu will-change-transform will-change-opacity pointer-events-none ${i === index ? "opacity-100" : "opacity-0"}`}
+          style={{ transformOrigin: "center", filter: "var(--hero-image-filter)", transition: "opacity 1400ms ease-in-out, transform 1600ms ease-in-out, filter 500ms ease", transform: i === index ? "scale(1.03)" : "scale(1)" }}
         />
       ))}
       {/* Dark overlay to ensure foreground text always reads clearly */}
