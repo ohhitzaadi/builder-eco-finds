@@ -51,8 +51,8 @@ export default function Home() {
         <div className="relative z-10 container py-16 md:py-24 grid gap-10 md:grid-cols-2 items-center">
           <div>
             <Badge className="mb-4" variant="secondary">Sustainable Second-Hand Marketplace</Badge>
-            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight"><span style={{ color: '#22c35d', fontWeight: 800 }}>EcoFinds</span> – Empowering Sustainable Consumption</h1>
-            <p className="mt-4 text-lg text-muted-foreground">Buy and sell pre-loved goods, extend product lifecycles, and join a community that rewards conscious choices.</p>
+            <h1 style={{ fontSize: '60px', fontWeight: 800, letterSpacing: '-1.5px', lineHeight: '60px' }} className="tracking-tight"><span style={{ color: '#22c35d', fontWeight: 800, fontStyle: 'italic' }}>EcoFinds</span> – Empowering Sustainable Consumption</h1>
+            <p style={{ color: 'rgb(148,163,184)', fontSize: '18px', lineHeight: '28px', marginTop: '16px' }}>Buy and sell pre-loved goods, extend product lifecycles, and join a community that rewards conscious choices.</p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Button asChild size="lg"><Link to="/browse">Browse Finds</Link></Button>
               <Button asChild size="lg" variant="secondary"><Link to="/sell">Start Selling</Link></Button>
