@@ -189,6 +189,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* AI Advice section */}
+      <AIAdvice />
+
       <section className="py-16">
         <div className="container grid gap-6 md:grid-cols-3">
           <Value
