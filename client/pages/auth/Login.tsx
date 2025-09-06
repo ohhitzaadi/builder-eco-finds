@@ -12,7 +12,7 @@ const schema = z.object({ email: z.string().email(), password: z.string().min(6)
 type FormValues = z.infer<typeof schema>;
 
 export default function Login() {
-  const { login } = useAuth();
+  const { login, socialLogin } = useAuth();
   const navigate = useNavigate();
   const location = useLocation() as any;
   const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<FormValues>({ resolver: zodResolver(schema) });
@@ -27,6 +27,16 @@ export default function Login() {
     }
   };
 
+  const handleSocial = async (provider: "google" | "facebook") => {
+    try {
+      await socialLogin(provider);
+      const to = location.state?.from?.pathname || "/";
+      navigate(to, { replace: true });
+    } catch (e: any) {
+      alert(e.message || "Social login failed");
+    }
+  };
+
   return (
     <div className="container py-12">
       <div className="mx-auto max-w-md">
@@ -36,6 +46,13 @@ export default function Login() {
             <CardDescription>Log in to continue your sustainable journey.</CardDescription>
           </CardHeader>
           <CardContent>
+            <div className="flex flex-col gap-3">
+              <Button className="w-full" variant="outline" onClick={() => handleSocial("google")}>Sign in with Google</Button>
+              <Button className="w-full" variant="outline" onClick={() => handleSocial("facebook")}>Sign in with Facebook</Button>
+            </div>
+
+            <div className="my-4 border-t" />
+
             <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
               <div>
                 <Input placeholder="Email" type="email" {...register("email" as const)} />
