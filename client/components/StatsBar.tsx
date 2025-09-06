@@ -80,9 +80,6 @@ export default function StatsBar() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-1 items-center">
-          <Link to="/trees" className="text-sm text-primary underline">View trees saved</Link>
-        </div>
       </div>
     </div>
   );
