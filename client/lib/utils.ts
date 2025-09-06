@@ -7,5 +7,9 @@ export function cn(...inputs: ClassValue[]) {
 
 export function formatPrice(cents: number) {
   if (typeof cents !== "number" || Number.isNaN(cents)) return "";
-  return new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 2 }).format(cents/100);
+  return new Intl.NumberFormat("en-IN", {
+    style: "currency",
+    currency: "INR",
+    maximumFractionDigits: 2,
+  }).format(cents / 100);
 }
