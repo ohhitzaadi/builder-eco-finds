@@ -14,6 +14,7 @@ const schema = z.object({
   description: z.string().min(10),
   category: z.string(),
   price: z.preprocess((v)=> Number(v), z.number().min(0).max(1_000_000)),
+  location: z.string().min(2).optional(),
   image: z.any().optional(),
 });
 
