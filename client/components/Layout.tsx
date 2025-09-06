@@ -7,6 +7,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <div className="min-h-screen flex flex-col">
       <Header />
       <main className="flex-1">{children}</main>
+      <Chatbot />
       <footer className="border-t bg-muted/20 py-10">
         <div className="container grid gap-6 md:grid-cols-3">
           <div>
