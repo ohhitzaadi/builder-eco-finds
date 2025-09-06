@@ -23,9 +23,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <div>
             <div className="font-semibold">About</div>
             <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
-              <li>Eco-scores & trust badges</li>
-              <li>Carbon impact roadmap</li>
-              <li>Community-driven sustainability</li>
+              <li className="transition-transform duration-150 hover:scale-105">Eco-scores & trust badges</li>
+              <li className="transition-transform duration-150 hover:scale-105">Carbon impact roadmap</li>
+              <li className="transition-transform duration-150 hover:scale-105">Community-driven sustainability</li>
             </ul>
           </div>
         </div>
