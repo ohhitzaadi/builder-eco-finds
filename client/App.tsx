@@ -20,6 +20,7 @@ import Register from "@/pages/auth/Register";
 import { AuthProvider, useAuth } from "@/state/auth";
 import { ProductsProvider } from "@/state/products";
 import { CartProvider } from "@/state/cart";
+import { ThemeProvider } from "@/state/theme";
 
 const queryClient = new QueryClient();
 
