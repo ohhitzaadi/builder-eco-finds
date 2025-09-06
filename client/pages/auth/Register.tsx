@@ -7,7 +7,19 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { useAuth } from "@/state/auth";
 import { Link, useNavigate } from "react-router-dom";
 
-const schema = z.object({ email: z.string().email(), password: z.string().min(6), username: z.string().min(2) });
+const passwordRules = z.string().min(12, { message: "Password must be at least 12 characters" }).refine((val) => /[a-z]/.test(val), { message: "Password must contain a lowercase letter" }).refine((val) => /[A-Z]/.test(val), { message: "Password must contain an uppercase letter" }).refine((val) => /[0-9]/.test(val), { message: "Password must contain a number" }).refine((val) => /[^A-Za-z0-9]/.test(val), { message: "Password must contain a symbol" });
+
+const schema = z
+  .object({
+    username: z.string().min(2),
+    email: z.string().email(),
+    password: passwordRules,
+    passwordConfirm: z.string(),
+  })
+  .refine((data) => data.password === data.passwordConfirm, {
+    message: "Passwords do not match",
+    path: ["passwordConfirm"],
+  });
 
 type FormValues = z.infer<typeof schema>;
 
