@@ -26,6 +26,12 @@ export default function ProductDetail() {
         <div className="flex items-center gap-2"><Badge variant="secondary">{product.category}</Badge></div>
         <h1 className="mt-3 text-3xl font-extrabold">{product.title}</h1>
         <div className="mt-2 text-2xl font-semibold">${(product.price/100).toFixed(2)}</div>
+        {product.location && (
+          <div className="mt-2 flex items-center gap-2 text-sm text-muted-foreground">
+            <MapPin className="h-4 w-4" />
+            <div>{product.location}</div>
+          </div>
+        )}
         <p className="mt-4 text-muted-foreground">{product.description}</p>
         <div className="mt-6 flex gap-3">
           <Button onClick={()=> addToCart(product.id)}>Add to cart</Button>
