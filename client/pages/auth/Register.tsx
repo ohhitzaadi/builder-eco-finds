@@ -12,7 +12,7 @@ const schema = z.object({ email: z.string().email(), password: z.string().min(6)
 type FormValues = z.infer<typeof schema>;
 
 export default function Register() {
-  const { register: signUp } = useAuth();
+  const { register: signUp, socialLogin } = useAuth();
   const navigate = useNavigate();
   const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<FormValues>({ resolver: zodResolver(schema) });
 
@@ -22,6 +22,15 @@ export default function Register() {
       navigate("/dashboard");
     } catch (e: any) {
       alert(e.message || "Registration failed");
+    }
+  };
+
+  const signUpSocial = async (provider: "google" | "facebook") => {
+    try {
+      await socialLogin(provider);
+      navigate("/dashboard");
+    } catch (e: any) {
+      alert(e.message || "Social signup failed");
     }
   };
 
