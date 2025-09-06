@@ -56,6 +56,17 @@ export default function Header() {
             Purchases
           </NavLink>
           <NavLink
+            to="/trees"
+            style={({ isActive }) =>
+              isActive
+                ? { fontWeight: 600 }
+                : { color: "rgb(148,163,184)", fontWeight: 400 }
+            }
+            className="transition-transform duration-150 hover:scale-105"
+          >
+            🌳 Trees
+          </NavLink>
+          <NavLink
             to="/dashboard"
             style={({ isActive }) =>
               isActive
