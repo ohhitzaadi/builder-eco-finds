@@ -7,6 +7,7 @@ interface AuthContextValue {
   users: UserProfile[];
   register: (email: string, password: string, username: string) => Promise<void>;
   login: (email: string, password: string) => Promise<void>;
+  socialLogin: (provider: "google" | "facebook") => Promise<void>;
   logout: () => void;
   updateProfile: (updates: Partial<Omit<UserProfile, "id" | "email" | "passwordHash" | "createdAt">>) => void;
 }
