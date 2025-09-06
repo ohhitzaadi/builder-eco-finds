@@ -15,9 +15,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <div>
             <div className="font-semibold">Explore</div>
             <ul className="mt-2 space-y-1 text-sm text-muted-foreground">
-              <li><a href="/browse" className="hover:text-foreground">Browse</a></li>
-              <li><a href="/sell" className="hover:text-foreground">Sell</a></li>
-              <li><a href="/purchases" className="hover:text-foreground">Purchases</a></li>
+              <li><a href="/browse" className="hover:text-foreground transition-transform duration-150 hover:scale-105">Browse</a></li>
+              <li><a href="/sell" className="hover:text-foreground transition-transform duration-150 hover:scale-105">Sell</a></li>
+              <li><a href="/purchases" className="hover:text-foreground transition-transform duration-150 hover:scale-105">Purchases</a></li>
             </ul>
           </div>
           <div>
