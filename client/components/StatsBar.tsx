@@ -6,6 +6,7 @@ function format(n: number) {
 }
 
 const AVERAGE_KG_PER_ITEM = 0.26; // estimated average weight saved per rehomed item
+const KG_PER_TREE = 20; // approximate kilograms diverted equivalent to one tree saved
 
 export default function StatsBar() {
   const [itemsRehomed, setItemsRehomed] = useState<number>(0);
