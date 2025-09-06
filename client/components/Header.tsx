@@ -14,13 +14,13 @@ export default function Header() {
       <div className="container flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center gap-2 font-extrabold text-xl tracking-tight">
           <span className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-primary text-primary-foreground"><Sprout className="h-5 w-5"/></span>
-          <span className="text-brand">EcoFinds</span>
+          <span style={{ color: '#22c35d', fontWeight: 800 }}>EcoFinds</span>
         </Link>
         <nav className="hidden md:flex items-center gap-6 text-sm">
-          <NavLink to="/browse" className={({isActive})=>isActive?"text-foreground font-semibold transition-transform duration-150 hover:scale-105":"text-muted-foreground hover:text-foreground transition-transform duration-150 hover:scale-105"}>Browse</NavLink>
-          <NavLink to="/sell" className={({isActive})=>isActive?"text-foreground font-semibold transition-transform duration-150 hover:scale-105":"text-muted-foreground hover:text-foreground transition-transform duration-150 hover:scale-105"}>Sell</NavLink>
-          <NavLink to="/purchases" className={({isActive})=>isActive?"text-foreground font-semibold transition-transform duration-150 hover:scale-105":"text-muted-foreground hover:text-foreground transition-transform duration-150 hover:scale-105"}>Purchases</NavLink>
-          <NavLink to="/dashboard" className={({isActive})=>isActive?"text-foreground font-semibold transition-transform duration-150 hover:scale-105":"text-muted-foreground hover:text-foreground transition-transform duration-150 hover:scale-105"}>Dashboard</NavLink>
+          <NavLink to="/browse" style={({ isActive }) => (isActive ? { fontWeight: 600 } : { color: 'rgb(148,163,184)', fontWeight: 400 })} className="transition-transform duration-150 hover:scale-105">Browse</NavLink>
+          <NavLink to="/sell" style={({ isActive }) => (isActive ? { fontWeight: 600 } : { color: 'rgb(148,163,184)', fontWeight: 400 })} className="transition-transform duration-150 hover:scale-105">Sell</NavLink>
+          <NavLink to="/purchases" style={({ isActive }) => (isActive ? { fontWeight: 600 } : { color: 'rgb(148,163,184)', fontWeight: 400 })} className="transition-transform duration-150 hover:scale-105">Purchases</NavLink>
+          <NavLink to="/dashboard" style={({ isActive }) => (isActive ? { fontWeight: 600 } : { color: 'rgb(148,163,184)', fontWeight: 400 })} className="transition-transform duration-150 hover:scale-105">Dashboard</NavLink>
         </nav>
         <div className="flex items-center gap-3">
           <Button variant="ghost" size="icon" onClick={toggle} aria-label="Toggle theme">
