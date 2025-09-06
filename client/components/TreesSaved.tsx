@@ -6,7 +6,7 @@ function format(n: number) {
 }
 
 const AVERAGE_KG_PER_ITEM = 0.26; // kg per rehomed item
-const KG_PER_TREE = 20; // kg equivalent per tree
+const KG_PER_TREE: number = 20; // kg equivalent per tree
 
 export default function TreesSaved() {
   const [kgDiverted, setKgDiverted] = useState<number>(0);
