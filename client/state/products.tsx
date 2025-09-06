@@ -14,13 +14,23 @@ const PRODUCTS_KEY = "products";
 
 const DEFAULT_CATEGORIES: Category[] = [
   "Fashion",
-  "Electronics",
-  "Home",
-  "Books",
-  "Sports",
-  "Toys",
   "Beauty",
+  "Accessories",
+  "Electronics",
+  "Smart Devices",
+  "Home",
+  "Furniture",
+  "Decor",
+  "Kitchen",
+  "Books",
+  "Media",
+  "Educational",
+  "Toys",
+  "Sports",
+  "Sports Gear",
   "Outdoor",
+  "Outdoor Equipment",
+  "Fitness",
   "Other",
 ];
 
