@@ -34,7 +34,7 @@ function HeroSlideshow({ interval = 6000 }: { interval?: number }) {
         />
       ))}
       {/* Dark overlay to ensure foreground text always reads clearly */}
-      <div className="absolute inset-0 bg-black/40 dark:bg-black/55" />
+      <div className="absolute inset-0 bg-black/20 dark:bg-black/55 transition-colors duration-300" />
     </div>
   );
 }
