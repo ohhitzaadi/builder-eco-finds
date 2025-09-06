@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { loadJSON } from "@/state/storage";
-import { Progress } from "@/components/ui/progress";
+import { Link } from "react-router-dom";
 
 function format(n: number) {
   return new Intl.NumberFormat().format(n);
