@@ -55,7 +55,7 @@ export default function StatsBar() {
 
   return (
     <div className="border-t bg-background/50">
-      <div className="container py-2 flex items-center justify-center gap-6 text-sm text-muted-foreground">
+      <div className="container py-3 flex items-center justify-center gap-6 text-sm text-muted-foreground">
         <div className="flex items-center gap-2 group transition-transform duration-200 ease-out hover:scale-110 hover:-translate-y-1">
           <img src="https://cdn.builder.io/o/assets%2F06962a51b996448bbf203913336a012c%2F5e4857b116754c3889a5afd168163fe2?alt=media&token=6ec53cd1-f75c-4f10-99b9-0b10bd0d1df0&apiKey=06962a51b996448bbf203913336a012c" alt="Earth" className="rounded-full object-cover transition-transform duration-200 ease-out transform group-hover:scale-110 group-hover:-translate-y-1" style={{ height: 34, width: 34 }} />
           <div>
@@ -77,6 +77,20 @@ export default function StatsBar() {
           <div>
             <div className="font-semibold">{format(usersCount)}</div>
             <div className="text-xs">conscious buyers & sellers</div>
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-2 w-48">
+          <div className="flex items-center gap-2">
+            <span className="text-2xl">🌳</span>
+            <div>
+              <div className="font-semibold">{format(Math.floor(kgDiverted / KG_PER_TREE))}</div>
+              <div className="text-xs">trees saved</div>
+            </div>
+          </div>
+          <div className="mt-1">
+            <Progress value={Math.min(100, Math.round(((kgDiverted % KG_PER_TREE) / KG_PER_TREE) * 100))} />
+            <div className="mt-1 text-xs text-muted-foreground">{Math.min(100, Math.round(((kgDiverted % KG_PER_TREE) / KG_PER_TREE) * 100))}% to next tree</div>
           </div>
         </div>
       </div>
